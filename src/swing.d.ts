@@ -1,10 +1,12 @@
 declare module "swing" {
+	/* Rebound types */
 	class SpringSystem {
 		createSpring(tension: number, friction: number): Spring;
 	}
 
 	class Spring {}
 
+	/* Swing type */
 	export enum Direction {
 		LEFT,
 		RIGHT,
