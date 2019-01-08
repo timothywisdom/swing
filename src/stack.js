@@ -1,7 +1,8 @@
-import _ from 'lodash';
-import Sister from 'sister';
-import rebound from 'rebound';
 import Card from './card';
+import Sister from 'sister';
+import find from 'lodash/find';
+import rebound from 'rebound';
+import remove from 'lodash/remove';
 
 /**
  * @param {Object} config Stack configuration.
@@ -94,7 +95,7 @@ const Stack = (config) => {
      * @return {Card|null}
      */
     stack.getCard = (element) => {
-        const group = _.find(index, {
+        const group = find(index, {
             element
         });
 
@@ -112,7 +113,7 @@ const Stack = (config) => {
      * @return {null}
      */
     stack.destroyCard = (card) => {
-        return _.remove(index, {
+        return remove(index, {
             card
         });
     };
