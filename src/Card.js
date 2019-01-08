@@ -1,14 +1,16 @@
-import _ from 'lodash';
-import Sister from 'sister';
-import Hammer from 'hammerjs';
-import rebound from 'rebound';
-import vendorPrefix from 'vendor-prefix';
-import raf from 'raf';
-import Direction from './Direction';
 import {
   elementChildren,
   isTouchDevice
 } from './utilities';
+
+import Direction from './Direction';
+import Hammer from 'hammerjs';
+import Sister from 'sister';
+import assign from 'lodash/assign';
+import raf from 'raf';
+import random from 'lodash/random';
+import rebound from 'rebound';
+import vendorPrefix from 'vendor-prefix';
 
 /**
  * @param {number} fromX
@@ -426,7 +428,7 @@ Card.makeConfig = (config = {}) => {
     transform: Card.transform
   };
 
-  return _.assign({}, defaultConfig, config);
+  return assign({}, defaultConfig, config);
 };
 
 /**
@@ -527,7 +529,7 @@ Card.isThrowOut = (xOffset, yOffset, element, throwOutConfidence) => {
  * @returns {number}
  */
 Card.throwOutDistance = (min, max) => {
-  return _.random(min, max);
+  return random(min, max);
 };
 
 /**
